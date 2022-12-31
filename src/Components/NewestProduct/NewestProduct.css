@@ -1,0 +1,17 @@
+.new-product-box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.box{
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+   
+    .new-product-box{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    
+      }
