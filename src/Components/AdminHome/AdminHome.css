@@ -1,0 +1,8 @@
+.admin-nav{
+
+    display: grid;
+    grid-template-columns: 80% 20%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+}
