@@ -20,24 +20,24 @@ const AdminSignup = () => {
         password: password,
       };
 
-      fetch("http://localhost:8000/createuser", {
+      fetch("https://rm-fashion-backend.vercel.app/createuser", {
         headers: {
           "Content-Type": "application/json",
         },
         method: "POST",
         body: JSON.stringify(signUpData),
       })
-      .then(res=>res.json())
-      .then(data=>{
-        if(data===true){
-          window.location.replace("/adminlogin")
-        }
-        // else if(data.limited==="limited"){
-        // }
-        else{
-          window.location.replace("/signuperror")
-        }
-      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data === true) {
+            window.location.replace("/adminlogin");
+          }
+          // else if(data.limited==="limited"){
+          // }
+          else {
+            window.location.replace("/signuperror");
+          }
+        });
     }
   };
 

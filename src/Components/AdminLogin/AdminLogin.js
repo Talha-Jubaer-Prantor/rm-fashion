@@ -1,15 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./AdminLogin.css";
 
 const AdminLogin = () => {
+  const [isLoading, setIsLoading] = useState(false);
 
-  const data=localStorage.getItem("user")
-  if(data){
-    window.location.replace("/adminhome")
+  const data = localStorage.getItem("user");
+  if (data) {
+    window.location.replace("/adminhome");
   }
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
 
     const password = e.target.password.value;
@@ -19,25 +20,29 @@ const AdminLogin = () => {
       email: email,
       password: password,
     };
-
-    fetch("http://localhost:8000/loginuser", {
+    setIsLoading(true);
+    await fetch("https://rm-fashion-backend.vercel.app/loginuser", {
       headers: {
         "Content-Type": "application/json",
       },
       method: "POST",
       body: JSON.stringify(loginData),
-    }).then(res=>res.json())
-      .then(data=>{
-        if(data===true){
-            localStorage.setItem("user",JSON.stringify(loginData))
-            window.location.replace("/adminHome")
-        }else{
-          console.log("failed")
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data === true) {
+          localStorage.setItem("user", JSON.stringify(loginData));
+          window.location.replace("/adminHome");
+        } else {
+          window.location.replace("/loginerror");
+          console.log(data);
         }
-      })
-  // const data=localStorage.getItem("user")
-  // console.log(data.email)
-    };
+      });
+    // const data=localStorage.getItem("user")
+    // console.log(data.email)
+    // console.log(isLoading);
+  };
 
   return (
     <div>
@@ -54,7 +59,14 @@ const AdminLogin = () => {
           <input type="text" name="password" id="" />
           <br />
           <br />
+
+          {/* {
+            isLoading ?
+            ""
+            : */}
           <button className="btn btn-success">Login</button>
+
+          {/* } */}
           <br />
           <p>
             Don't have any account <Link to="/adminsignup">Signup</Link>

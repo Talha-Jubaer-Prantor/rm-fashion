@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const LoginError = () => {
     return (
         <div>
-            <Link to={"/loginerror"} className='btn btn-success'>Try Again</Link>
+            <Link to={"/adminlogin"} className='btn btn-success'>Try Again</Link>
             
         </div>
     );
