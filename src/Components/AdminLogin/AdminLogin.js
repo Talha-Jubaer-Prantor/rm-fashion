@@ -21,7 +21,7 @@ const AdminLogin = () => {
       password: password,
     };
     setIsLoading(true);
-    await fetch("https://rm-fashion-backend.vercel.app/loginuser", {
+    await fetch("http://localhost:8000/loginuser", {
       headers: {
         "Content-Type": "application/json",
       },
@@ -60,13 +60,7 @@ const AdminLogin = () => {
           <br />
           <br />
 
-          {
-            isLoading ?
-            ""
-            : 
-          <button className="btn btn-success">Login</button>
-
-           } 
+          {isLoading ? "" : <button className="btn btn-success">Login</button>}
           <br />
           <p>
             Don't have any account <Link to="/adminsignup">Signup</Link>
