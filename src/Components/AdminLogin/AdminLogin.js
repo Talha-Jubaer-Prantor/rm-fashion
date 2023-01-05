@@ -21,7 +21,7 @@ const AdminLogin = () => {
       password: password,
     };
     setIsLoading(true);
-    await fetch("http://localhost:8000/loginuser", {
+    await fetch("https://rm-fashion-backend.vercel.app0/loginuser", {
       headers: {
         "Content-Type": "application/json",
       },
