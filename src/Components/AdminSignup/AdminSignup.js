@@ -20,7 +20,7 @@ const AdminSignup = () => {
         password: password,
       };
 
-      fetch("https://rm-fashion-backend.vercel.app0/createuser", {
+      fetch("https://rm-fashion-backend.vercel.app/createuser", {
         headers: {
           "Content-Type": "application/json",
         },
