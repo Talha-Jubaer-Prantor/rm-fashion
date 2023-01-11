@@ -30,6 +30,7 @@ const AdminSignup = () => {
           body: JSON.stringify(signUpData),
         }
       )
+
         .then((res) => res.json())
         .then((data) => {
           if (data === true) {

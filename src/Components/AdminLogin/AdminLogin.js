@@ -31,6 +31,7 @@ const AdminLogin = () => {
         body: JSON.stringify(loginData),
       }
     )
+
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
