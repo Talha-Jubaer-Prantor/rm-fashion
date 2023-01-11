@@ -21,13 +21,16 @@ const AdminLogin = () => {
       password: password,
     };
     setIsLoading(true);
-    await fetch("https://rm-fashion-backend.vercel.app0/loginuser", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(loginData),
-    })
+    await fetch(
+      "https://rm-fashion-backend-au65inysf-talha-jubaer-prantor.vercel.app/loginuser",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: JSON.stringify(loginData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

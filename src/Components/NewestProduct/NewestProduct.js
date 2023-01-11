@@ -1,37 +1,38 @@
-import React from 'react';
-import "./NewestProduct.css"
+import React, { useEffect, useState } from "react";
+import "./NewestProduct.css";
 
 const NewestProduct = () => {
-    return (
-        <div className='newProduct'>
-            <br /><br />
-            <h1 style={{textAlign:"center"}}> Newest Product </h1>
-            <br /><br />
-        <div className='new-product-box'>
-            <div className='box'>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_n7et99-37WAxGIT4En9EPoWMk4s_zFmdQ&usqp=CAU" alt="" />
-                <h3>T-shirt</h3>
-                <span>Price</span>
-            </div>
-            
-            <div className='box'>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_n7et99-37WAxGIT4En9EPoWMk4s_zFmdQ&usqp=CAU" alt="" />
-                <h3>T-shirt</h3>
-                <span>Price</span>
-            </div>
+  const [newproducts, setNewProduct] = useState([]);
 
-            <div className='box'>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTs_n7et99-37WAxGIT4En9EPoWMk4s_zFmdQ&usqp=CAU" alt="" />
-                <h3>T-shirt</h3>
-                <span>Price</span>
-            </div>
+  useEffect(() => {
+    fetch(
+      "https://rm-fashion-backend-au65inysf-talha-jubaer-prantor.vercel.app/newproduct"
+    )
+      .then((res) => res.json())
+      .then((data) => setNewProduct(data));
+  });
 
-
-        </div>
-
-            
-        </div>
-    );
+  return (
+    <div className="newProduct">
+      <br />
+      <br />
+      <h1 style={{ textAlign: "center" }}> Newest Product </h1>
+      <br />
+      <br />
+      <div className="new-product-box">
+        {newproducts.map((newproduct) => (
+          <div className="box">
+            <img
+              style={{ height: "200px", width: "200px" }}
+              src={newproduct.img}
+              alt=""
+            />
+            <h3>T-shirt</h3>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default NewestProduct;

@@ -1,5 +1,5 @@
 import React from 'react';
-import Carousel from '../Slider/Slider';
+import Slider from '../Slider/Slider';
 import Navbar from '../Navbar/Navbar';
 import NewestProduct from '../NewestProduct/NewestProduct';
 import FeatureProduct from '../FeatureProducts/FeatureProduct';
@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
         <Navbar></Navbar>
-        <Carousel></Carousel>
+        <Slider></Slider>
         <NewestProduct></NewestProduct>
         <FeatureProduct></FeatureProduct>
         <Footer></Footer>
