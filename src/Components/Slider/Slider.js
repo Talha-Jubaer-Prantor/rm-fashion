@@ -6,12 +6,12 @@ const Slider = () => {
   const [sliderImgs, setSliderImg] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://rm-fashion-backend-au65inysf-talha-jubaer-prantor.vercel.app/sliderimg"
-    )
+    fetch("https://rm-fashion-backend.vercel.app/sliderimg")
       .then((res) => res.json())
       .then((data) => setSliderImg(data));
   }, []);
+
+  console.log(sliderImgs);
 
   return (
     <div>

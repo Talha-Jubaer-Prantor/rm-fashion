@@ -10,6 +10,8 @@ import AdminLogin from './Components/AdminLogin/AdminLogin';
 import SomethingWrong from './Components/AdminSignup/SignupError';
 import LoginError from './Components/AdminLogin/LoginError';
 import AdminHome from './Components/AdminHome/AdminHome';
+import AdminHomeDelete from './Components/AdminDelete/AdminHomeDelete/AdminHomeDelete';
+import AdminSettings from './Components/AdminSettings/AdminSettings';
 const App = () => {
   return (
     <div className='app'>
@@ -24,6 +26,8 @@ const App = () => {
         <Route path='/signuperror' element={<SomethingWrong></SomethingWrong>}></Route>
         <Route path='/loginerror' element={<LoginError></LoginError>}></Route>
         <Route path='/adminhome' element={<AdminHome></AdminHome>}></Route>
+        <Route path='/admindelete' element={<AdminHomeDelete></AdminHomeDelete>}></Route>
+        <Route path='/adminsettings' element={<AdminSettings></AdminSettings>}></Route>
       </Routes>
     </div>
   );

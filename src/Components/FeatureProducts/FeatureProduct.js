@@ -5,9 +5,7 @@ const FeatureProduct = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://rm-fashion-backend-au65inysf-talha-jubaer-prantor.vercel.app/fetureproduct"
-    )
+    fetch("https://rm-fashion-backend.vercel.app/fetureproduct")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

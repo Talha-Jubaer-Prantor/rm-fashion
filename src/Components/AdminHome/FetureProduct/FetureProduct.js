@@ -1,28 +1,38 @@
-import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 
 const FetureProduct = () => {
+  // View Feture Product
+
+  const [viewFetureProd, setViewFetureProd] = useState("");
+  const handleViewFeatureProd = (e) => {
+    const img = e.target.value;
+    setViewFetureProd(img);
+  };
+
+  // Feture Product Upload
+
   const handleFetureProduct = (e) => {
     e.preventDefault();
 
-    const form = document.getElementById("fetureForm");
+    const img = e.target.image.value;
+    const price = e.target.price.value;
+    const Name = e.target.name.value;
 
-    const formData = new FormData(form);
-
-    axios
-      .post(
-        "https://rm-fashion-backend-au65inysf-talha-jubaer-prantor.vercel.app/fetureproductpost",
-        formData
-      )
-      .then((res) => {
-        if (res.data === true) {
-          window.location.reload();
-        }
-      });
+    fetch("https://rm-fashion-backend.vercel.app/fetureproductpost", {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify({ img: img, name: Name, price: price }),
+    }).then((res) => {
+      if (res) {
+        window.location.reload();
+      }
+    });
   };
 
   return (
-    <div>
+    <div style={{ textAlign: "center" }}>
       <br />
       <br />
       <br />
@@ -34,7 +44,8 @@ const FetureProduct = () => {
       >
         <span style={{ fontSize: "20px" }}> Image </span>
         <br />
-        <input type="file" name="image" /> <br />
+        <input type="text" name="image" onChange={handleViewFeatureProd} />{" "}
+        <br />
         <br />
         <span style={{ fontSize: "20px" }}> Name </span>
         <br />
@@ -48,6 +59,20 @@ const FetureProduct = () => {
         <br />
         <button className="btn btn-success">Submit</button>
       </form>
+      <br />
+      <img
+          style={{ height: "100px", width: "200px" }}
+          src={
+            viewFetureProd
+              ? viewFetureProd
+              : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfFVI771jkfWHKbUCEOWlrK3CbTbt-0x_c_A&usqp=CAU"
+          }
+          alt=""
+        />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 };

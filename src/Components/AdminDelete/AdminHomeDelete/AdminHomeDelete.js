@@ -1,12 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AdminDeleteBar from "../AdminDeleteBar/AdminDeleteBar";
-import "./AdminHome.css";
-import FetureProduct from "./FetureProduct/FetureProduct";
-import NewestProduct from "./NewestProduct/NewestProduct";
-import SliderImg from "./SliderImage/SliderImg";
+import AdminDeleteBar from "../../AdminDeleteBar/AdminDeleteBar";
+import FetureProductDelete from "../FetureProductDelete/FetureProductDelete";
+import NewProductDelete from "../NewProductDelete/NewProductDelete";
+import SliderDelete from "../SliderDelete/SliderDelete";
 
-const AdminHome = () => {
+const AdminHomeDelete = () => {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem("user");
@@ -17,7 +16,6 @@ const AdminHome = () => {
   if (!user) {
     window.location.replace("/adminlogin");
   }
-
   return (
     <div className="container">
       <div className="admin-nav container">
@@ -31,17 +29,12 @@ const AdminHome = () => {
         </span>
       </div>
 
-      <div>
-        <AdminDeleteBar></AdminDeleteBar>
-
-        <SliderImg></SliderImg>
-
-        <NewestProduct></NewestProduct>
-
-        <FetureProduct></FetureProduct>
-      </div>
+      <AdminDeleteBar></AdminDeleteBar>
+      <SliderDelete></SliderDelete>
+      <NewProductDelete></NewProductDelete>
+      <FetureProductDelete></FetureProductDelete>
     </div>
   );
 };
 
-export default AdminHome;
+export default AdminHomeDelete;

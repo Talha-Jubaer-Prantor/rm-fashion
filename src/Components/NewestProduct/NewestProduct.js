@@ -5,9 +5,7 @@ const NewestProduct = () => {
   const [newproducts, setNewProduct] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://rm-fashion-backend-au65inysf-talha-jubaer-prantor.vercel.app/newproduct"
-    )
+    fetch("https://rm-fashion-backend.vercel.app/newproduct")
       .then((res) => res.json())
       .then((data) => setNewProduct(data));
   });
@@ -27,7 +25,7 @@ const NewestProduct = () => {
               src={newproduct.img}
               alt=""
             />
-            <h3>T-shirt</h3>
+            <h3>{newproduct.name}</h3>
           </div>
         ))}
       </div>
